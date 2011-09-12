@@ -1,11 +1,12 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.10'
-
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+gem 'rails', '3.0.10'
 gem 'sqlite3', '1.3.3'
+gem 'gravatar_image_tag'
+
 
 group :development, :test do
 	gem 'rspec-rails', '2.6.1'
@@ -15,6 +16,7 @@ group :development, :test do
 	gem 'webrat', '0.7.1'	
 	gem 'guard-spork'
 	gem 'annotate', '2.4.0'
+	gem 'factory_girl_rails', '1.0'
 end
 
 
