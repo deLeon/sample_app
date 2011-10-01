@@ -6,6 +6,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.10'
 gem 'sqlite3', '1.3.3'
 gem 'gravatar_image_tag'
+gem 'will_paginate', '3.0.pre2'
 
 
 group :development, :test do
@@ -18,6 +19,7 @@ group :development, :test do
 	gem 'guard-spork'
 	gem 'annotate', '2.4.0'
 	gem 'factory_girl_rails', '1.0'
+	gem 'faker', '0.3.1'
 end
 
 
@@ -44,3 +46,4 @@ end
 # group :development, :test do
 #   gem 'webrat'
 # end
+
