@@ -58,5 +58,40 @@ describe "Users" do
       end
     end
   end
+
+  describe 'sidebar content' do
+
+    before(:each) do
+      user = Factory(:user)
+      visit signin_path
+      fill_in :email,     :with => user.email
+      fill_in :password,  :with => user.password
+      click_button
+    end
+
+    it 'should have 0 microposts' do
+      visit root_path
+      response.should_not have_selector("span.microposts", :content => "1 micropost")
+    end
+
+    it 'should have 1 micropost' do
+      mp1 = "Lorem ipsum dolor sit amet"
+      visit root_path
+      fill_in :micropost_content, :with => mp1
+      click_button
+      response.should have_selector("span.microposts", :content => "1 micropost")
+    end
+
+    it 'should have 2 microposts' do
+      mp1 = "Lorem ipsum dolor sit amet"
+      mp2 = "Lorem ipsum"
+      visit root_path
+      fill_in :micropost_content, :with => mp1
+      click_button
+      fill_in :micropost_content, :with => mp2
+      click_button
+      response.should have_selector("span.microposts", :content => "2 microposts")
+    end
+  end
 end
 

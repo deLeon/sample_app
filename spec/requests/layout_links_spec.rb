@@ -90,6 +90,24 @@ describe "LayoutLinks" do
                                                 :content => "delete")
       end
     end
+
+    describe 'as another user' do
+      before(:each) do
+        content = "Lorem ipsum dolor sit amet"
+        visit root_path
+        fill_in :micropost_content, :with => content
+        click_button
+        click_link "Sign out"
+      end
+
+      it 'should not have delete links' do
+        user2 = Factory(:user, :email => "user2@example.com")
+        integration_sign_in(user2)
+        visit user_path(@user)
+        response.should_not have_selector("a", :href => user_path(@user),
+                                                :content => "delete")
+      end
+    end
   end
 end
 

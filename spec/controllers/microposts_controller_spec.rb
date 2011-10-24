@@ -46,7 +46,7 @@ describe MicropostsController do
         @attr = { :content => "Lorem ipsum"}
       end
 
-      it 'shold create a micropost' do
+      it 'should create a micropost' do
         lambda do
           post :create, :micropost => @attr
         end.should change(Micropost, :count).by(1)
